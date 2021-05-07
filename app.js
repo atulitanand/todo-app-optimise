@@ -30,10 +30,11 @@ class components {
 const KEY = "alltasks";
 class utils {
   static getdata() {
-    if (localStorage.getItem(KEY)) return JSON.parse(localStorage.getItem(KEY));
-    else {
-      return [];
-    }
+    return (localStorage.getItem(KEY)) ? JSON.parse(localStorage.getItem(KEY)) : [];  
+//     if () return ;
+//     else {
+//       return ;
+//     }
   }
   static additem(item) {
     let updatedTasks = this.getdata();
