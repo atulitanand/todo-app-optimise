@@ -31,10 +31,6 @@ const KEY = "alltasks";
 class utils {
   static getdata() {
     return (localStorage.getItem(KEY)) ? JSON.parse(localStorage.getItem(KEY)) : [];  
-//     if () return ;
-//     else {
-//       return ;
-//     }
   }
   static additem(item) {
     let updatedTasks = this.getdata();
@@ -43,7 +39,6 @@ class utils {
   }
   static redo() {
     localStorage.setItem(KEY, JSON.stringify(["make a cake", "buy new car"]));
-    console.log(this.getdata());
   }
   static removeitem(item) {
     let updatedTasks = this.getdata().filter((_item) => {
@@ -60,7 +55,6 @@ class utils {
 let alltasks = utils.getdata();
 if (alltasks) {
   alltasks.forEach((taskText) => {
-    console.log(typeof taskText);
     components.addNewTodo(taskText);
   });
 }
