@@ -14,7 +14,7 @@ class components {
     button.appendChild(document.createTextNode("Done"));
 
     // add content
-    p.appendChild(document.createTextNode(taskContent));
+    p.innerHTML = `<a href="${taskContent}" target="_blank">${taskContent}</a>`;
 
     div.appendChild(p);
     div.appendChild(button);
@@ -30,7 +30,9 @@ class components {
 const KEY = "alltasks";
 class utils {
   static getdata() {
-    return (localStorage.getItem(KEY)) ? JSON.parse(localStorage.getItem(KEY)) : [];  
+    return localStorage.getItem(KEY)
+      ? JSON.parse(localStorage.getItem(KEY))
+      : [];
   }
   static additem(item) {
     let updatedTasks = this.getdata();
